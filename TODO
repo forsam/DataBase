@@ -1,0 +1,23 @@
+* Be able to create new collections (new directories)!
+  * Every collection has a standard type!
+    * Default values!
+    * Must add values!
+    * Every item in the collection has a specific name based in the standard type!
+    * Items are stored as .item files
+    * Methods for Items
+      * collection.getItemById(Id)
+      * collection.changeItemById(Id)
+      * collection.addItem()
+      * collection.deleteItemById(Id)
+
+  * Methods for collection
+    * dataBase.addCollection(collectionName, collectionType)
+    * dataBase.getCollection(collectionName)
+    * dataBase.deleteCollection(collectionName)
+
+A dataBase is built of collections which is populated by items!
+the database is the rootfolder!
+  * Methods for dataBase
+    * db = getDataBase(path)
+
+DEFAULT VALUES MUST BE ADDED!!!
