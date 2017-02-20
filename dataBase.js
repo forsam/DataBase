@@ -19,7 +19,7 @@ var getDataBase = function(path){
     },
 
     getCollection: function(collectionName){
-
+      var __collectionName = collectionName;
       var __path = this.path + collectionName + '/';
 
       collection = {
@@ -53,6 +53,7 @@ var getDataBase = function(path){
         },
 
         addItem: function(obj){
+          obj = this.typeCheck(obj);
           var path = __path + obj.Id;
           if(fs.existsSync(path)){
             console.log('The item: ' + obj.Id + ' already exists!');
@@ -70,6 +71,13 @@ var getDataBase = function(path){
           }else{
             console.log('You are trying to delete nothing!');
           };
+        },
+        typeCheck: function(obj){
+          var type = this.getItemById(__collectionName);
+          for(key in type){
+            obj[key]? (obj[key] = obj[key]) : (obj[key] = type[key]);
+          };
+          return obj;
         }
       }
       return collection;
